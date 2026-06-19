@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+    --color-app-bg: #050505;
+    --color-app-surface: #0a0a0a;
+    --color-app-border: #161a20;
+    --color-app-text: #e2e8f0;
+    --color-app-text-dim: #71717a;
+    --color-app-positive: #06b6d4;
+    --color-app-accent: #00bed7;
+    --color-app-keyword: #f43f5e;
+}
+
+/* Utility classes to map variables to tailwind-like colors (since @theme is handled differently in browser script) */
+.bg-app-bg { background-color: var(--color-app-bg); }
+.bg-app-surface { background-color: var(--color-app-surface); }
+.border-app-border { border-color: var(--color-app-border); }
+.text-app-text { color: var(--color-app-text); }
+.text-app-text-dim { color: var(--color-app-text-dim); }
+.text-app-accent { color: var(--color-app-accent); }
+.bg-app-accent { background-color: var(--color-app-accent); }
+
+body {
+    background-color: var(--color-app-bg);
+    color: var(--color-app-text);
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    overflow: hidden;
+}
+
+canvas {
+    display: block;
+}
+
+/* Scrollbar customization */
+::-webkit-scrollbar {
+    width: 4px;
+}
+::-webkit-scrollbar-track {
+    background: var(--color-app-bg);
+}
+::-webkit-scrollbar-thumb {
+    background: #222;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-app-accent);
+}
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes scaleIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+@keyframes slideIn { from { opacity: 0; transform: translateX(-100%); } to { opacity: 1; transform: translateX(0); } }
+
+.animate-fade-in { animation: fadeIn 0.2s ease-out forwards; }
+.animate-scale-in { animation: scaleIn 0.2s ease-out forwards; }
+.animate-slide-in { animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
